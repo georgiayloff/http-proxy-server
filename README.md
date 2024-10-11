@@ -18,5 +18,11 @@ yarn add -D @georgiayloff/http-proxy-server
 ## Usage
 
 ```shell
-npm http-proxy-server <path-to-config>
+npm run http-proxy-server <path-to-config>
+```
+
+or
+
+```shell
+yarn http-proxy-server <path-to-config>
 ```
