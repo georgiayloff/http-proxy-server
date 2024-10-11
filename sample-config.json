@@ -1,0 +1,14 @@
+{
+  "port": 4200,
+  "dist": "dist/app",
+  "proxies": [
+    {
+      "path": "/api",
+      "target": "http://localhost:8080"
+    },
+    {
+      "path": "/settings",
+      "target": "http://localhost:8081"
+    }
+  ]
+}

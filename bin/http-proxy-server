@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const path = require("path");
+const fs = require("fs");
+const createServer = require("../index");
+const args = process.argv.slice(2);
+
+const configFilePath = args[0] || path.join(process.cwd(), "config.json");
+
+if (!fs.existsSync(configFilePath)) {
+  console.error(`Config file not found at ${configFilePath}`);
+  process.exit(1);
+}
+
+const config = JSON.parse(fs.readFileSync(configFilePath, "utf-8"));
+
+createServer(config);
