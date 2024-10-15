@@ -15,7 +15,7 @@ const createServer = (config) => {
     app.use(
       proxy.path,
       createProxyMiddleware({
-        target: proxy.target + proxy.path,
+        target: proxy.target,
         changeOrigin: proxy.changeOrigin || false,
         pathRewrite: proxy.pathRewrite,
       })

@@ -1,6 +1,6 @@
 {
   "name": "@georgiayloff/http-proxy-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An http server that serves static files and allows proxying to other servers",
   "main": "index.js",
   "scripts": {
