@@ -1,5 +1,6 @@
 {
   "port": 4200,
+  "cors": true,
   "dist": "dist/app",
   "proxies": [
     {

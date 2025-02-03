@@ -1,15 +1,20 @@
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const path = require("path");
+const cors = require("cors");
 
 const createServer = (config) => {
   const appDir = config.dist || path.join(process.cwd(), "dist");
   const port = config.port || 4200;
   const proxies = config.proxies || [];
+  const corsEnabled = config.cors || false;
 
   const app = express();
 
   app.use("/", express.static(appDir));
+  if (corsEnabled) {
+    app.use(cors());
+  }
 
   proxies.forEach((proxy) => {
     app.use(
@@ -18,6 +23,7 @@ const createServer = (config) => {
         target: proxy.target,
         changeOrigin: proxy.changeOrigin || false,
         pathRewrite: proxy.pathRewrite,
+        logger: console,
       })
     );
   });
