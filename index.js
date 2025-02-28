@@ -2,14 +2,19 @@ const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const path = require("path");
 const cors = require("cors");
+const log4js = require("log4js");
 
 const createServer = (config) => {
   const appDir = config.dist || path.join(process.cwd(), "dist");
   const port = config.port || 4200;
   const proxies = config.proxies || [];
   const corsEnabled = config.cors || false;
+  const logging = config.logging || {};
 
   const app = express();
+
+  const logger = log4js.getLogger();
+  logger.level = logging.level || "info";
 
   app.use("/", express.static(appDir));
   if (corsEnabled) {
@@ -23,7 +28,7 @@ const createServer = (config) => {
         target: proxy.target,
         changeOrigin: proxy.changeOrigin || false,
         pathRewrite: proxy.pathRewrite,
-        logger: console,
+        logger,
       })
     );
   });

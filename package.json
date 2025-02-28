@@ -1,6 +1,6 @@
 {
   "name": "@georgiayloff/http-proxy-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An http server that serves static files and allows proxying to other servers",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "express-requests-logger": "^4.0.1",
-    "http-proxy-middleware": "^3.0.3"
+    "http-proxy-middleware": "^3.0.3",
+    "log4js": "^6.9.1"
   }
 }
