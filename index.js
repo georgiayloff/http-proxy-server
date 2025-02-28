@@ -28,6 +28,7 @@ const createServer = (config) => {
         target: proxy.target,
         changeOrigin: proxy.changeOrigin || false,
         pathRewrite: proxy.pathRewrite,
+        ws: proxy.ws || false,
         logger,
       })
     );
